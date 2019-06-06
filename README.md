@@ -1,14 +1,15 @@
 
 ### Players in the space
-1) https://www.elastic.co/  original developers
-Provides a hosted service with lot of features such as machine learning etc.
+1) https://www.elastic.co/  
+Original developers of Elasticsearch.
+Provides a hosted service with lots of features such as machine learning etc.
 But expensive.
 
 2) https://opendistro.github.io/for-elasticsearch/
-Recent fork of Elasticsearch by Amazon that is opensource with some additional features mostly around security, monitoring and alerting to run in enterprise environment. Aws also provides hosted version Elasticsearch based on this version.
+Recent fork of Elasticsearch by Amazon that is open source with some additional features mostly around security, monitoring and alerting to run in enterprise environment. Aws also provides hosted version **Elasticsearch** based on this version.
 
 ### What is Elasticsearch and how is it being used
-Open source **distributed**, RESTful search and analytics engine capable of solving a growing number of use cases. Based of off proven text search engine Lucene but upgraded to support distributed computing for scale.
+Open source **distributed**, RESTful search and analytics engine capable of solving a growing number of use cases. Based on proven text search engine Lucene but upgraded to support distributed computing for scale.
 
 ### What are some of the use cases ?
 
@@ -18,6 +19,7 @@ Open source **distributed**, RESTful search and analytics engine capable of solv
     Provide visibility to the state of the systems
     Efficient search over large volume of data.
     Follow a transaction from end to end
+    Centralized access to log with simple functionality like tail.
 
     #### Examples   
     1. web log -  http error codes and response time analytics and alerting
@@ -25,42 +27,49 @@ Open source **distributed**, RESTful search and analytics engine capable of solv
 
     2. [Winlogbeat](https://www.elastic.co/guide/en/beats/winlogbeat/current/_winlogbeat_overview.html#_winlogbeat_overview) - Send Windows event logs to Elasticsearch
     3. [Import IIS logs into elasticsearch](https://blog.sstorie.com/importing-iis-logs-into-elasticsearch-with-logstash/)
-    4. Centralized access to log with simple functionality like tail.
-
 
 #### 2. Business Analytics
     Use Elasticsearch to manage business data and events to provide business functionality
 
     #### Examples   
-    1. Centralized all customer related data from differnt business units into ES and provide report access to users via customer portal
+    1. Centralized all customer related data from differnt business units into ES and provide report access
+    to users via customer portal
 
-    2. Social Media data - source data from various social media accounts for a company and explore using Kibana. Get top hashtags, count the number of times a company's handle was in the tweet and posts
+    2. Social Media data - source data from various social media accounts for a company and explore using
+    Kibana. Get top hashtags, count the number of times a company's handle was in the tweet and posts
 
-    3. Example E-commerce data to get analytics.  For example for Ecomerce orders you can easily create analytics to explore sales by manufacturers. No of orders per day , sales by category , total revenue, weekly trends, monthly trends etc. Basically replaces a datawarehouse with more like setting alerts etc.
+    3. Example E-commerce data to get analytics.  For example for Ecomerce orders you can easily create
+    analytics to explore sales by manufacturers. No of orders per day , sales by category , total revenue,
+    weekly trends, monthly trends etc. Basically replaces a datawarehouse with more like setting alerts etc.
 
-    4. Product catalogs and inventory can be uploaded and queried via dedicated apis for the app. We powered a game virtual goods shop with items listed under categories and sub categories.
+    4. Product catalogs and inventory can be uploaded and queried via dedicated apis for the app.
+    We powered a game virtual goods shop with items listed under categories and sub categories.
 
 #### 3. APM ( Application performance monitoring)
-    Application performance monitoring. Agents that integrate to the runtime and collects metrics from inside the application. For example how many objects created, how many garbage collected, cpu cycles on each methods calls etc...
+    Application performance monitoring. Agents that integrate into the runtime and collects metrics from
+    inside the application. For example how many objects created, how many garbage collected, cpu cycles
+    on each methods calls etc...
     [APM for ASP.net](https://github.com/elastic/apm-agent-dotnet/blob/master/docs/intro.asciidoc)
 
 
 #### 4. Enterprise search
-  Manage your traditional document search across devisions and integrate with other enterprise data. For example search for a KYC document for a customer along with interaction history all in one place.  
+    Manage your traditional document search across devisions and integrate with other enterprise data.
+    For example search for a KYC document for a customer along with interaction history all in one place.  
 
 #### 5. Metrics
     Operating systems and services metrics. Disk IO, RAM, Cache , Swap etc.
     Apache metrics, Logstash mertric, RabbitMQ metrics. There are log of plugins available.
 
 #### 6. Alerts
-    Raise alerts via slack, email etc when certain conditions are met on data in the indexes. Raise alert if you see more than 5 htto status code 500 in 5 minute interval.
+    Raise alerts via slack, email etc when certain conditions are met on data in the indexes. Raise alert
+    if you see more than 5 htto status code 500 in 5 minute interval.
     Raise alerts if avg response time for /createOrder endpoint is more than 2 sec.
     Usually enterprises pay lot of money to integrate with pager duty etc.
 #### 7. Performace Analyzer
     Provided by the Open Distro. Provides detailed visibility into netwrok, disk and OS stats.
 
 
-# Lets get some hands on experience with Elasticsearch cluster and Kibana
+## Lets get some hands on experience with Elasticsearch cluster and Kibana
 We will launch a 2 node cluster of Elasticsearch and 1 node of Kibana.
 Then we will upload some data and play with Kibana.
 
@@ -128,7 +137,7 @@ networks:
   odfe-net:
 ```
 Under Services we have defined 3 nodes. **odfe-node1** and **odfe-node2** are Elasticsearch nodes that uses the docker image provided by Amazon.
-**kibana** is anoher node that uses the Kibana image from Amazon.
+**Kibana** is anoher node that uses the Kibana image from Amazon.
 Compose will instantiate these 3 nodes and sets them up on a single network **odfe-net**. These nodes are reachable and discoverable within this network.
 
 Lets bring the nodes up
@@ -206,8 +215,8 @@ name    component                       version
 5nWB3jt opendistro_sql                  0.9.0.0
 ```
 
-## kibana
-  Kibana is an open-source data visualization and exploration tool used for log and time-series analytics, application monitoring, and operational intelligence use cases
+## Kibana
+Kibana is an open-source data visualization and exploration tool used for log and time-series analytics, application monitoring, and operational intelligence use cases
 
 Now lets access Kibana at  http://localhost:5601/
 Use ```admin``` and ```admin``` as username and password.
@@ -218,10 +227,9 @@ You should see a welcome to Kibana page
 
 Lets select the link **Explore on my own**
 
-After exploring some of the menu items now select logout at the bottom left so
-that we're back to login.
+After exploring some of the menu items now select kibana at top left to go to home.
 
-Lets log back in and now import some  data that comes with the distribution
+Here selet **Add log data** and then select **Sample Data**
 
 Select **Sample web Logs**
 ![](https://drive.google.com/uc?id=11s9xF1x5emAcRzAiK5ATJCSkDTh4fnPB)
@@ -241,7 +249,7 @@ In the query box at the top try out running different queries
  Use Flight data to wall through and understand dashboard , visualize and Discover.
 [Explore Flight Data sample in Kinaba](https://www.elastic.co/guide/en/kibana/current/getting-started.html)
 
-#### Lets create a new index.
+### Lets create a new index.
 
 Each index is a collection of JSON documents
 
@@ -290,6 +298,12 @@ Result
 ```
 
 Creates a new index called my_app_weblog.
+
+Lets post the second data
+
+```
+CURL -v --user admin:admin -H "Content-Type: application/json" -d '{"time":"02:49:35", "ip":"127.0.0.1", "verb":"GET", "path":"/index.html", "response":"200"}' -XPOST https://localhost:9200/my_app_weblog/_doc --insecure
+```
 
 Lets view this from Discover
 
