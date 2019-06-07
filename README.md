@@ -25,7 +25,8 @@ Open source **distributed**, RESTful search and analytics engine capable of solv
     1. web log -  http error codes and response time analytics and alerting
      ![http status code](https://drive.google.com/uc?id=1i5Ay91MB6kzi4pWVmvrs92vjK_f1RNko)
 
-    2. [Winlogbeat](https://www.elastic.co/guide/en/beats/winlogbeat/current/_winlogbeat_overview.html#_winlogbeat_overview) - Send Windows event logs to Elasticsearch
+    2. [Winlogbeat](https://www.elastic.co/guide/en/beats/winlogbeat/current_winlogbeat_overview.html#_winlogbeat_overview)
+      - Send Windows event logs to Elasticsearch
     3. [Import IIS logs into elasticsearch](https://blog.sstorie.com/importing-iis-logs-into-elasticsearch-with-logstash/)
 
 #### 2. Business Analytics
@@ -327,7 +328,10 @@ Select that index and you will see the two rows listed .
 
 ### How does applications send logs to ES ?
 
-One popular tool is Logstash - member of ELK stack
+One popular tool is Logstash - member of ELK stack (Elasticsearch - LogStash - Kibana)
+
+![](https://drive.google.com/uc?id=1XSqtJhFHwD2Lki9uw9gCDbYnzFIwq46E)
+
 
 In java world log4j is a very popular logging tool that has appender to push data to ES
 
